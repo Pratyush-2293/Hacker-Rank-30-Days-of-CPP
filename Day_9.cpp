@@ -13,7 +13,12 @@ string rtrim(const string &);
  */
 
 int factorial(int n) {
-
+    int res = n;
+    for (int i=1;i<n;i++){
+        res = res*i;
+    }
+    
+    return res;
 }
 
 int main()
@@ -33,3 +38,27 @@ int main()
 
     return 0;
 }
+
+string ltrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        s.begin(),
+        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+    );
+
+    return s;
+}
+
+string rtrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        s.end()
+    );
+
+    return s;
+}
+
+//edit: reduced lines of code and imrpoved readability by using for loop.
