@@ -28,3 +28,5 @@ int main(){
 
     return 0;
 }
+
+//edit: reduced lines of code
