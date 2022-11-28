@@ -27,7 +27,24 @@ int main()
             arr[i][j] = arr_row_item;
         }
     }
-
+    
+     int sum=0, max =0;
+    
+    for(int r=0; r<=3; r++){
+        for(int c=0 ;c<=3;c++){
+            sum = arr[r][c] + arr[r][c+1] + arr[r][c+2]
+                            + arr[r+1][c+1]
+                + arr[r+2][c] + arr[r+2][c+1] + arr[r+2][c+2];
+                
+                if(sum>max || r==0 && c==0){
+                    max = sum;
+                }
+                
+        }
+    }
+    
+    cout<<max;
+    
     return 0;
 }
 
@@ -69,3 +86,5 @@ vector<string> split(const string &str) {
 
     return tokens;
 }
+
+//edit: fixed issue where last 2 test case conditions were not met.
